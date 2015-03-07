@@ -47,9 +47,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\ExploController.cs" />
+     <Compile Include="Assets\Scripts\FireController.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\MainTowerController.cs" />
      <Compile Include="Assets\Scripts\RunContorller.cs" />
+     <Compile Include="Assets\Scripts\ShootController.cs" />
      <Compile Include="Assets\Scripts\WallController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

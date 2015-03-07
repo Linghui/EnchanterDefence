@@ -33,4 +33,8 @@ public class MainTowerController : MonoBehaviour {
 	void OnAnimationMove(){
 		Debug.Log ("OnAnimationMove " + gameObject.GetComponent<Animation>().name);
 	}
+
+	void OnAnimatorIK(int layerIndex) {
+		Debug.Log ("OnAnimatorIK " + gameObject.GetComponent<Animation>().name);
+	}
 }

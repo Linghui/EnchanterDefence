@@ -8,17 +8,20 @@ public class GameController : MonoBehaviour {
 	public GameObject[] enimies;
 	public List<GameObject> liveEnimies;
 	private int count = 100;
-	public Text time;
+	public Text timeTxt;
+	public Text scoreTxt;
+	public Text goldTxt;
 
 	private int totalTime = 70;
 	private float secondCounter = 0;
+	private int scoreCounter = 0;
 
 	private bool gameOver = false;
 
 	// Use this for initialization
 	void Start () {
 		
-		time.text = getTimeStr(totalTime); 
+		timeTxt.text = getTimeStr(totalTime); 
 	}
 	
 	// Update is called once per frame
@@ -42,7 +45,7 @@ public class GameController : MonoBehaviour {
 		if(secondCounter >= 1){
 			secondCounter=0;
 			totalTime--;
-			time.text = getTimeStr(totalTime); 
+			timeTxt.text = getTimeStr(totalTime); 
 			if(totalTime <= 0){
 				GameOver();
 			}
@@ -71,5 +74,11 @@ public class GameController : MonoBehaviour {
 
 		room.transform.position = new Vector3(randomx, 9, 0);
 
+	}
+
+	public void AddScore(int score){
+		Debug.Log ("AddScore " + score);
+		scoreCounter += score;
+		scoreTxt.text = scoreCounter + "";
 	}
 }

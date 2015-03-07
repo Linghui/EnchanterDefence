@@ -3,23 +3,45 @@ using System.Collections;
 
 public class RunContorller : MonoBehaviour {
 	
-	public float speed = 0.0004f;
-	private Vector2 currentDir;
+	public float speed;
+	public GameObject explo;
+	public int maxHp;
+	public int hp;
+
+	private GameController gameController;
+	private Sprite bloodSprite;
 
 	// Use this for initialization
 	void Start () {
-		currentDir = new Vector2 (0,-2);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		Vector3 forward = new Vector3 (0, -1, 0);
+		GetComponent<Rigidbody2D>().velocity = forward * speed;
+
+		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
+
+		if (gameControllerObject != null)
+		{
+			gameController = gameControllerObject.GetComponent <GameController>();
+		}
+		if (gameController == null)
+		{
+			Debug.Log ("Cannot find 'GameController' script");
+		}
+
 	}
 
-	void FixedUpdate(){
-//		Debug.Log ("FixedUpdate");
-//		transform.position = new Vector3 (transform.position.x, transform.position.y+speed,0);
-		transform.Translate(currentDir * Time.deltaTime);
+	void OnTriggerEnter2D(Collider2D collider)
+	{
+		if(collider.gameObject.CompareTag("bullet")){
+			
+			Destroy (collider.gameObject);
+			Destroy(gameObject);
+			
+			GameObject exploInstance = (GameObject)Instantiate (explo);
+			exploInstance.transform.position = new Vector3 (gameObject.transform.position.x, gameObject.transform.position.y, 0);
+
+			gameController.AddScore(100);
+
+		}
 	}
 
 }
