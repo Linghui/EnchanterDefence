@@ -10,6 +10,7 @@ public class RunContorller : MonoBehaviour {
 	public int hp;
 	public BarController barController;
 	public int score ;
+	public GameObject coin;
 
 	private GameController gameController;
 	private Sprite bloodSprite;
@@ -64,10 +65,25 @@ public class RunContorller : MonoBehaviour {
 //				.GetComponent<BarController>();
 		barController.setupBarLength ((float)hp/maxHp);
 		if (hp <= 0){
-			Destroy(gameObject);
-			gameController.AddScore(score);
+			die();
 		}
 
 	}
 
+	void die(){
+
+		int temp = Random.Range(0, 2);
+
+		if( temp == 1){
+			dropCoin();
+		}
+
+		Destroy(gameObject);
+		gameController.AddScore(score);
+	}
+
+	void dropCoin(){
+		GameObject tc = Instantiate (coin) as GameObject;
+		tc.transform.position = transform.position;
+	}
 }

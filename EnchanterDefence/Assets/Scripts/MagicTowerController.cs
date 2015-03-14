@@ -17,7 +17,7 @@ public class MagicTowerController : MonoBehaviour {
 		counter = interal;
 		fireObjHeight = fireObj.GetComponent<SpriteRenderer> ().sprite.texture.height;
 //		Debug.Log ("test " + distance(0,0,3,4));
-		print ("print (Mathf.Atan(0.5));" + Mathf.Atan(1f)* Mathf.Rad2Deg);
+//		print ("print (Mathf.Atan(0.5));" + Mathf.Atan(1f)* Mathf.Rad2Deg);
 
 		mLine = GetComponent<LineRenderer> ();
 		mLine.sortingLayerName ="player";
@@ -60,13 +60,13 @@ public class MagicTowerController : MonoBehaviour {
 
 				float dist = Vector2.Distance(shooter.transform.position, collider.transform.position);
 
-				Debug.Log("dist2 " + dist);
+//				Debug.Log("dist2 " + dist);
 
 
 				float angle = Angle.cangle(shooter.transform.position.x,shooter.transform.position.y, 
 				                    collider.transform.position.x,collider.transform.position.y);
 
-				Debug.Log("angle " + angle);
+//				Debug.Log("angle " + angle);
 				
 				lighting.transform.localScale = new Vector3(1, dist/2, 1);
 				lighting.transform.position += new Vector3(0,dist/2,0);

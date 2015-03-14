@@ -44,22 +44,22 @@ public class MainTowerController : MonoBehaviour {
 	}
 
 	void OnTriggerStay2D(Collider2D collider){
-		return;
+
 		if(collider.CompareTag("enemy") && fire){
 			fire = false;
 
 			GameObject bullet = Instantiate(fireBullet) as GameObject;
 
 
-			Debug.Log("bullet.transform.position " + shooter.transform.position);
-			Debug.Log("bullet.transform.position " + collider.transform.position);
+//			Debug.Log("bullet.transform.position " + shooter.transform.position);
+//			Debug.Log("bullet.transform.position " + collider.transform.position);
 
 
 			Vector3 td = shooter.transform.InverseTransformPoint(collider.transform.position);
-			Debug.Log("td " + td);
+//			Debug.Log("td " + td);
 
 			Vector2 dirc = Vector2.MoveTowards(new Vector2(0,0), td,1);
-			Debug.Log("dirc " + dirc);
+//			Debug.Log("dirc " + dirc);
 			bullet.GetComponent<Rigidbody2D>().velocity = dirc * bulletSpeed;
 
 

@@ -22,7 +22,7 @@ public class Angle : MonoBehaviour {
 			tan -= 90;
 		}
 		
-		Debug.Log ("angle tan " + tan);
+//		Debug.Log ("angle tan " + tan);
 		return tan;
 		
 		

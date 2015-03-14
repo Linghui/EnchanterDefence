@@ -7,10 +7,13 @@ public class GameController : MonoBehaviour {
 
 	public GameObject[] enimies;
 	public List<GameObject> liveEnimies;
-	private int count = 100;
+
 	public Text timeTxt;
 	public Text scoreTxt;
 	public Text goldTxt;
+
+	public float enemyInterval;
+	private float count = 0;
 
 	private int totalTime = 70;
 	private float secondCounter = 0;
@@ -31,8 +34,8 @@ public class GameController : MonoBehaviour {
 			return;
 		}
 
-		count++;
-		if(count >= 100){
+		count += Time.deltaTime;
+		if(count >= enemyInterval){
 			count = 0;
 			CreateEnimy();
 		}
@@ -78,7 +81,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void AddScore(int score){
-		Debug.Log ("AddScore " + score);
+//		Debug.Log ("AddScore " + score);
 		scoreCounter += score;
 		scoreTxt.text = scoreCounter + "";
 	}
