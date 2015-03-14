@@ -12,8 +12,8 @@ public class BarController : MonoBehaviour {
 		setupBarLength (1f);
 	}
 
-	void setupBarLength(float percent){
-		Debug.Log ("percent " + percent);
+	public void setupBarLength(float percent){
+//		Debug.Log ("percent " + percent);
 		if(percent < 0 ){
 			percent = 0;
 		} else if ( percent > 1 ){
@@ -21,7 +21,7 @@ public class BarController : MonoBehaviour {
 		}
 		int width = (int)(front.texture.width * percent);
 
-		Debug.Log ("width " + width);
+//		Debug.Log ("width " + width);
 
 		
 		Sprite temp = Sprite.Create (front.texture, 

@@ -38,6 +38,7 @@ public class GameController : MonoBehaviour {
 		}
 
 		TimeRender ();
+
 	}
 
 	void TimeRender(){
