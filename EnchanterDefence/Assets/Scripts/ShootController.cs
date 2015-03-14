@@ -11,13 +11,5 @@ public class ShootController : MonoBehaviour {
 	void Start () {
 
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		counter += Time.deltaTime;
-		if(counter >= interval){
-			counter = 0f;
-			Instantiate (fire);
-		}
-	}
+
 }

@@ -5,9 +5,11 @@ public class RunContorller : MonoBehaviour {
 	
 	public float speed;
 	public GameObject explo;
+	public GameObject lightingExplo;
 	public int maxHp;
 	public int hp;
 	public BarController barController;
+	public int score ;
 
 	private GameController gameController;
 	private Sprite bloodSprite;
@@ -33,14 +35,21 @@ public class RunContorller : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collider)
 	{
 		if(collider.gameObject.CompareTag("bullet")){
+
 			Destroy (collider.gameObject);
 			damage(50);
 
 			GameObject exploInstance = (GameObject)Instantiate (explo);
 			exploInstance.transform.position = new Vector3 (gameObject.transform.position.x, gameObject.transform.position.y, 0);
 
-			gameController.AddScore(100);
 
+		} else if (collider.gameObject.CompareTag("lighting")){
+			
+			Destroy (collider.gameObject,0.1f);
+			damage(50);
+			
+			GameObject exploInstance = (GameObject)Instantiate (lightingExplo);
+			exploInstance.transform.position = new Vector3 (gameObject.transform.position.x, gameObject.transform.position.y, 0);
 		}
 	}
 
@@ -56,6 +65,7 @@ public class RunContorller : MonoBehaviour {
 		barController.setupBarLength ((float)hp/maxHp);
 		if (hp <= 0){
 			Destroy(gameObject);
+			gameController.AddScore(score);
 		}
 
 	}

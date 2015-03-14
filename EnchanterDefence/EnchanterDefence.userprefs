@@ -1,14 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MagicTowerController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MainTowerController.cs">
     <Files>
       <File FileName="Assets/Scripts/RunContorller.cs" Line="33" Column="2" />
       <File FileName="../../../../Downloads/u3/CircleBar/CircleBar.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/BarController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/MagicTowerController.cs" Line="32" Column="101" />
-      <File FileName="Assets/Scripts/MainTowerController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ShootController.cs" Line="20" Column="15" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="41" Column="3" />
+      <File FileName="Assets/Scripts/MagicTowerController.cs" Line="106" Column="1" />
+      <File FileName="Assets/Scripts/MainTowerController.cs" Line="66" Column="2" />
+      <File FileName="Assets/Scripts/ShootController.cs" Line="9" Column="2" />
+      <File FileName="Assets/Scripts/LightingController.cs" Line="10" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -8,7 +8,7 @@ public class ExploController : MonoBehaviour {
 	void Start () {
 	
 		Destroy (gameObject, deadDelay);
-		GetComponent<ParticleSystem> ().GetComponent<Renderer> ().sortingLayerName = "enemy";
+//		GetComponent<ParticleSystem> ().GetComponent<Renderer> ().sortingLayerName = "enemy";
 	}
 
 }

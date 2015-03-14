@@ -7,8 +7,8 @@ public class FireController : MonoBehaviour {
 	void Start ()
 	{
 		Destroy (gameObject, deadDelay);
-		Vector3 forward = new Vector3 (0, 1, 0);
-		GetComponent<Rigidbody2D>().velocity = forward * speed;
+//		Vector3 forward = new Vector3 (0, 2, 0);
+//		GetComponent<Rigidbody2D>().velocity = forward * speed;
 	}
 
 
