@@ -10,7 +10,7 @@ public class GoldBarController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collider){
 	
 		if(collider.CompareTag("coin")){
-			Debug.Log("got");
+//			Debug.Log("got");
 			Destroy(collider.gameObject);
 			goldCounter++;
 			updateGoleText();
