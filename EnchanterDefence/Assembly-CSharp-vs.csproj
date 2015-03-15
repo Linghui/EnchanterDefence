@@ -54,9 +54,11 @@
      <Compile Include="Assets\Scripts\FireController.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\GoldBarController.cs" />
+     <Compile Include="Assets\Scripts\HitterController.cs" />
      <Compile Include="Assets\Scripts\LightingController.cs" />
      <Compile Include="Assets\Scripts\MagicTowerController.cs" />
      <Compile Include="Assets\Scripts\MainTowerController.cs" />
+     <Compile Include="Assets\Scripts\PaoController.cs" />
      <Compile Include="Assets\Scripts\ParticleController.cs" />
      <Compile Include="Assets\Scripts\RunContorller.cs" />
      <Compile Include="Assets\Scripts\ShootController.cs" />

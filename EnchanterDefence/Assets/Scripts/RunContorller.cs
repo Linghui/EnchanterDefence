@@ -35,10 +35,17 @@ public class RunContorller : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-		if(collider.gameObject.CompareTag("bullet")){
+		if(collider.gameObject.CompareTag("bullet") || collider.CompareTag("explode")){
+			if(collider.gameObject.CompareTag("bullet")){
+				
+				Destroy (collider.gameObject);
+				damage(50);
+			} else {
+				
+				Destroy (collider.gameObject, 0.05f);
+				damage(80);
+			}
 
-			Destroy (collider.gameObject);
-			damage(50);
 
 			GameObject exploInstance = (GameObject)Instantiate (explo);
 			exploInstance.transform.position = new Vector3 (gameObject.transform.position.x, gameObject.transform.position.y, 0);
