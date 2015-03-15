@@ -14,7 +14,7 @@ public class MainTowerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		anim = GetComponent<Animator> ();
+		anim = gameObject.GetComponent<Animator> ();
 	}
 
 	void Update(){
@@ -65,6 +65,14 @@ public class MainTowerController : MonoBehaviour {
 
 			float angle = Angle.cangle(shooter.transform.position, collider.transform.position);
 			bullet.transform.Rotate(new Vector3(0,0,angle));
+
+			if(angle > 20){
+				anim.SetTrigger("a2");
+			} else if (angle < -20){
+				anim.SetTrigger("a3");
+			} else {
+				anim.SetTrigger("a1");
+			}
 		}
 	}
 
