@@ -6,6 +6,8 @@ public class MainTowerController : MonoBehaviour {
 	private Animator anim;
 	private int direct = 0;
 	public GameObject shooter;
+	public GameObject left_shooter;
+	public GameObject right_shooter;
 	public GameObject fireBullet;
 	public float interval;
 	private float intervalCounter = 0f;
@@ -49,7 +51,7 @@ public class MainTowerController : MonoBehaviour {
 			fire = false;
 
 			GameObject bullet = Instantiate(fireBullet) as GameObject;
-			bullet.transform.position = shooter.transform.position;
+
 
 //			Debug.Log("bullet.transform.position " + shooter.transform.position);
 //			Debug.Log("bullet.transform.position " + collider.transform.position);
@@ -68,10 +70,13 @@ public class MainTowerController : MonoBehaviour {
 
 			if(angle > 20){
 				anim.SetTrigger("a2");
+				bullet.transform.position = left_shooter.transform.position;
 			} else if (angle < -20){
 				anim.SetTrigger("a3");
+				bullet.transform.position = right_shooter.transform.position;
 			} else {
 				anim.SetTrigger("a1");
+				bullet.transform.position = shooter.transform.position;
 			}
 		}
 	}
