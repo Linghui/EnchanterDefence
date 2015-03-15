@@ -80,6 +80,7 @@ public class RunContorller : MonoBehaviour {
 
 		Destroy(gameObject);
 		gameController.AddScore(score);
+		gameController.powerOn (1);
 	}
 
 	void dropCoin(){

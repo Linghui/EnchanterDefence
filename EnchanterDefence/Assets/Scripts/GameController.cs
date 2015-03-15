@@ -21,10 +21,16 @@ public class GameController : MonoBehaviour {
 
 	private bool gameOver = false;
 
+	public int powerEnough = 30;
+	private int powerCount = 0;
+	public GameObject powerBar;
+	private BarController barController;
+
 	// Use this for initialization
 	void Start () {
 		
 		timeTxt.text = getTimeStr(totalTime); 
+		barController = powerBar.GetComponent<BarController> ();
 	}
 	
 	// Update is called once per frame
@@ -84,5 +90,10 @@ public class GameController : MonoBehaviour {
 //		Debug.Log ("AddScore " + score);
 		scoreCounter += score;
 		scoreTxt.text = scoreCounter + "";
+	}
+
+	public void powerOn(int power){
+		powerCount += power;
+		barController.setupBarLength ((float)powerCount/powerEnough);
 	}
 }

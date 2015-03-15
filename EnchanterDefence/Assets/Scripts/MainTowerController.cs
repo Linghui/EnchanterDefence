@@ -49,7 +49,7 @@ public class MainTowerController : MonoBehaviour {
 			fire = false;
 
 			GameObject bullet = Instantiate(fireBullet) as GameObject;
-
+			bullet.transform.position = shooter.transform.position;
 
 //			Debug.Log("bullet.transform.position " + shooter.transform.position);
 //			Debug.Log("bullet.transform.position " + collider.transform.position);

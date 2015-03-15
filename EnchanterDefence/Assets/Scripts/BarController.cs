@@ -4,18 +4,17 @@ using System.Collections;
 public class BarController : MonoBehaviour {
 	
 	public Sprite front;
+	public float start = 1f;
 
-	public GameObject owner;
-	
+
 	void Start(){
-
-		setupBarLength (1f);
+		setupBarLength (start);
 	}
 
 	public void setupBarLength(float percent){
 //		Debug.Log ("percent " + percent);
-		if(percent < 0 ){
-			percent = 0;
+		if(percent <= 0 ){
+			percent = 0.01f;
 		} else if ( percent > 1 ){
 			percent = 1;
 		}
