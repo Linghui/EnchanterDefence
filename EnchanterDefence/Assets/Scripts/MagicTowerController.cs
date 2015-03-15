@@ -12,10 +12,14 @@ public class MagicTowerController : MonoBehaviour {
 	private int fireObjHeight;
 
 	private LineRenderer mLine;
+	private Animator anim;
+	private bool isFlip = false;
 
 	void Start(){
 		counter = interal;
 		fireObjHeight = fireObj.GetComponent<SpriteRenderer> ().sprite.texture.height;
+		anim = gameObject.GetComponent<Animator> ();
+
 //		Debug.Log ("test " + distance(0,0,3,4));
 //		print ("print (Mathf.Atan(0.5));" + Mathf.Atan(1f)* Mathf.Rad2Deg);
 
@@ -66,6 +70,14 @@ public class MagicTowerController : MonoBehaviour {
 				float angle = Angle.cangle(shooter.transform.position.x,shooter.transform.position.y, 
 				                    collider.transform.position.x,collider.transform.position.y);
 
+				if( angle > 30){
+					faceLeft();
+				} else if ( angle < -30){
+					faceRight();
+				} else {
+					faceUp();
+				}
+
 //				Debug.Log("angle " + angle);
 				
 				lighting.transform.localScale = new Vector3(1, dist/2, 1);
@@ -78,5 +90,35 @@ public class MagicTowerController : MonoBehaviour {
 		}
 	}
 
+
+	void faceLeft(){
+//		Debug.Log ("faceLeft");
+		if(isFlip){
+			flip();
+		}
+		anim.SetTrigger ("a2");
+	}
+
+	void faceUp(){
+//		Debug.Log ("faceUp");
+		anim.SetTrigger ("a1");
+	}
+
+	void faceRight(){
+		//		Debug.Log ("faceRight");
+		if(!isFlip){
+			flip();
+		}
+		anim.SetTrigger ("a2");
+	}
+
+	void flip(){
+		isFlip = !isFlip;
+
+		Vector3 theScale = transform.localScale;
+		theScale.x *= -1;
+		transform.localScale = theScale;
+
+	}
 
 }
