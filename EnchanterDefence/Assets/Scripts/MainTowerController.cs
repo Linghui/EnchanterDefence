@@ -81,8 +81,5 @@ public class MainTowerController : MonoBehaviour {
 		}
 	}
 
-	void OnMouseUp(){
-		Debug.Log ("OnMouseUp");
-	}
 
 }

@@ -33,6 +33,12 @@ public class RunContorller : MonoBehaviour {
 
 	}
 
+	void Update(){
+		if(transform.position.y <= -15){
+			Destroy(gameObject);
+		}
+	}
+
 	void OnTriggerEnter2D(Collider2D collider)
 	{
 		if(collider.gameObject.CompareTag("bullet") || collider.CompareTag("explode")){

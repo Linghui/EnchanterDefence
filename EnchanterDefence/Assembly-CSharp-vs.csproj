@@ -62,7 +62,13 @@
      <Compile Include="Assets\Scripts\ParticleController.cs" />
      <Compile Include="Assets\Scripts\RunContorller.cs" />
      <Compile Include="Assets\Scripts\ShootController.cs" />
+     <Compile Include="Assets\Scripts\Tower\AreaController.cs" />
+     <Compile Include="Assets\Scripts\Tower\BuildController.cs" />
+     <Compile Include="Assets\Scripts\Tower\CircleController.cs" />
+     <Compile Include="Assets\Scripts\Tower\MagicClick.cs" />
+     <Compile Include="Assets\Scripts\Tower\UpgradeController.cs" />
      <Compile Include="Assets\Scripts\WallController.cs" />
+     <Compile Include="Assets\Scripts\ui\numberController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

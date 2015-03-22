@@ -1,28 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MagicTowerController : MonoBehaviour {
-
+public class MagicTowerController : UpgradeController {
+	
 	public int power;
 	public float interal;
-	private float counter;
-	private bool fire = true;
 	public GameObject fireObj;
 	public GameObject shooter;
-	private int fireObjHeight;
+	public GameObject builder;
+	public GameObject top;
 
+	private int fireObjHeight;
+	private float counter;
+	private bool fire = true;
 	private LineRenderer mLine;
 	private Animator anim;
 	private bool isFlip = false;
+	private int level = 1; 
 
-	void Start(){
+	public override void ownStart(){
+		
+		
 		counter = interal;
 		fireObjHeight = fireObj.GetComponent<SpriteRenderer> ().sprite.texture.height;
 		anim = gameObject.GetComponent<Animator> ();
-
-//		Debug.Log ("test " + distance(0,0,3,4));
-//		print ("print (Mathf.Atan(0.5));" + Mathf.Atan(1f)* Mathf.Rad2Deg);
-
+		
+		//		Debug.Log ("test " + distance(0,0,3,4));
+		//		print ("print (Mathf.Atan(0.5));" + Mathf.Atan(1f)* Mathf.Rad2Deg);
+		
 		mLine = GetComponent<LineRenderer> ();
 		mLine.sortingLayerName ="player";
 
@@ -40,6 +45,28 @@ public class MagicTowerController : MonoBehaviour {
 
 
 	}
+
+	public override void startBuild(int buildType){
+		Debug.Log ("build " + buildType);
+		base.uiClose ();
+		// upgrade
+		if(buildType == 1){
+			upgrade();
+		}
+		// sell
+		else if ( buildType == -1){
+			Destroy(top);
+			GameObject builderIns = Instantiate(builder) as GameObject;
+			builderIns.transform.position = transform.position;
+		}
+
+
+	}
+
+	void upgrade(){
+		Debug.Log ("upgrade " + level++);
+	}
+
 
 	void OnTriggerStay2D(Collider2D collider){
 		

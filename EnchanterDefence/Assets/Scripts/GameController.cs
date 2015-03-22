@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour {
 	public float enemyInterval;
 	private float count = 0;
 
-	private int totalTime = 70;
+	private int totalTime = 20;
 	private float secondCounter = 0;
 	private int scoreCounter = 0;
 
@@ -25,29 +25,78 @@ public class GameController : MonoBehaviour {
 	private int powerCount = 0;
 	public GameObject powerBar;
 	private BarController barController;
+	private RuntimePlatform platform;
+
+	public string clickLayer;
 
 	// Use this for initialization
 	void Start () {
 		
 		timeTxt.text = getTimeStr(totalTime); 
 		barController = powerBar.GetComponent<BarController> ();
+		platform = Application.platform;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+		uiClickDetect ();
+
 		if(gameOver){
 			return;
 		}
 
-		count += Time.deltaTime;
-		if(count >= enemyInterval){
-			count = 0;
-			CreateEnimy();
+//		count += Time.deltaTime;
+//		if(count >= enemyInterval){
+//			count = 0;
+//			CreateEnimy();
+//		}
+//
+//		TimeRender ();
+
+	}
+
+	void uiClickDetect(){
+		
+		if(platform == RuntimePlatform.Android || platform == RuntimePlatform.IPhonePlayer){
+			if(Input.touchCount > 0) {
+				if(Input.GetTouch(0).phase == TouchPhase.Began){
+					checkTouch(Input.GetTouch(0).position);
+				}
+			}
+		}else 
+//		if(platform == RuntimePlatform.WindowsEditor)
+		{
+//			Debug.Log ("Input.mousePosition " + Input.mousePosition);
+			if(Input.GetMouseButtonDown(0)) {
+//				Debug.Log ("Input.mousePosition " + Input.mousePosition);
+				checkTouch(Input.mousePosition);
+			}
 		}
+	}
 
-		TimeRender ();
+	
+	void checkTouch(Vector3 pos){
+		Vector3 wp  = Camera.main.ScreenToWorldPoint(pos);
+		Vector2 touchPos  = new Vector2(wp.x, wp.y);
+		LayerMask mask = LayerMask.NameToLayer(clickLayer);
+//		Debug.Log ("mask " + mask.value);
 
+
+		Collider2D[] hit = Physics2D.OverlapPointAll(touchPos);
+
+		if (hit != null && hit.Length > 0) {
+
+			for(int index = 0; index < hit.Length ; index++){
+				if(hit[index].gameObject.layer == mask.value){
+//					Debug.Log ("hit " + hit[index].gameObject.name);
+					hit[index].transform.gameObject.SendMessage ("Clicked", 0, SendMessageOptions.DontRequireReceiver);
+				}
+			}
+
+		} else {
+//			Debug.Log("????");
+		}
 	}
 
 	void TimeRender(){
