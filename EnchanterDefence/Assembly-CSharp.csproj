@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AnimationTest.cs" />
      <Compile Include="Assets\Scripts\Angle.cs" />
      <Compile Include="Assets\Scripts\BarController.cs" />
      <Compile Include="Assets\Scripts\CoinController.cs" />
@@ -56,6 +55,7 @@
      <Compile Include="Assets\Scripts\GoldBarController.cs" />
      <Compile Include="Assets\Scripts\HitterController.cs" />
      <Compile Include="Assets\Scripts\LightingController.cs" />
+     <Compile Include="Assets\Scripts\Login\ButtonController.cs" />
      <Compile Include="Assets\Scripts\MagicTowerController.cs" />
      <Compile Include="Assets\Scripts\MainTowerController.cs" />
      <Compile Include="Assets\Scripts\PaoController.cs" />
