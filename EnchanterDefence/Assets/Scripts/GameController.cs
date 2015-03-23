@@ -46,13 +46,13 @@ public class GameController : MonoBehaviour {
 			return;
 		}
 
-//		count += Time.deltaTime;
-//		if(count >= enemyInterval){
-//			count = 0;
-//			CreateEnimy();
-//		}
-//
-//		TimeRender ();
+		count += Time.deltaTime;
+		if(count >= enemyInterval){
+			count = 0;
+			CreateEnimy();
+		}
+
+		TimeRender ();
 
 	}
 

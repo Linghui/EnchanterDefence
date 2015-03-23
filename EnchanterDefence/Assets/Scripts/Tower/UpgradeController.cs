@@ -23,7 +23,7 @@ public abstract class UpgradeController : MonoBehaviour {
 		
 		circleIns.SetActive (false);
 
-
+		ownStart ();
 	}
 
 	public abstract void ownStart ();

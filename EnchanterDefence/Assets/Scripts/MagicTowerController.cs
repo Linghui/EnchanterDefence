@@ -20,7 +20,6 @@ public class MagicTowerController : UpgradeController {
 
 	public override void ownStart(){
 		
-		
 		counter = interal;
 		fireObjHeight = fireObj.GetComponent<SpriteRenderer> ().sprite.texture.height;
 		anim = gameObject.GetComponent<Animator> ();
