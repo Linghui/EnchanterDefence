@@ -17,9 +17,12 @@ public class MagicTowerController : UpgradeController {
 	private Animator anim;
 	private bool isFlip = false;
 	private int level = 1; 
+	private GameController gameController;
 
 	public override void ownStart(){
-		
+
+		gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController> ();
+
 		counter = interal;
 		fireObjHeight = fireObj.GetComponent<SpriteRenderer> ().sprite.texture.height;
 		anim = gameObject.GetComponent<Animator> ();
@@ -69,7 +72,7 @@ public class MagicTowerController : UpgradeController {
 
 	void OnTriggerStay2D(Collider2D collider){
 		
-		if(collider.CompareTag("enemy")){
+		if(collider.CompareTag("enemy") && !gameController.isGameOver()){
 			
 			if(fire){
 				fire = false;
@@ -139,11 +142,11 @@ public class MagicTowerController : UpgradeController {
 	}
 
 	void flip(){
-		isFlip = !isFlip;
-
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+//		isFlip = !isFlip;
+//
+//		Vector3 theScale = transform.localScale;
+//		theScale.x *= -1;
+//		transform.localScale = theScale;
 
 	}
 

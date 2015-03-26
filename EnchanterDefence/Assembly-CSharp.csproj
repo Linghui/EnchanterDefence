@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\Tower\BuildController.cs" />
      <Compile Include="Assets\Scripts\Tower\CircleController.cs" />
      <Compile Include="Assets\Scripts\Tower\MagicClick.cs" />
+     <Compile Include="Assets\Scripts\Tower\MainBody.cs" />
      <Compile Include="Assets\Scripts\Tower\UpgradeController.cs" />
      <Compile Include="Assets\Scripts\WallController.cs" />
      <Compile Include="Assets\Scripts\ui\numberController.cs" />

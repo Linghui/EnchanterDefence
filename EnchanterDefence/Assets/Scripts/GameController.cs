@@ -11,8 +11,18 @@ public class GameController : MonoBehaviour {
 	public Text timeTxt;
 	public Text scoreTxt;
 	public Text goldTxt;
+	public Text hpTxt;
+
+	public int hp_set;
+	private int hp;
+
+
+	public string clickLayer;
+	public GameObject powerBar;
+	public int powerEnough = 30;
 
 	public float enemyInterval;
+
 	private float count = 0;
 
 	private int totalTime = 20;
@@ -20,14 +30,13 @@ public class GameController : MonoBehaviour {
 	private int scoreCounter = 0;
 
 	private bool gameOver = false;
-
-	public int powerEnough = 30;
+	
 	private int powerCount = 0;
-	public GameObject powerBar;
+
 	private BarController barController;
 	private RuntimePlatform platform;
 
-	public string clickLayer;
+
 
 	// Use this for initialization
 	void Start () {
@@ -35,6 +44,8 @@ public class GameController : MonoBehaviour {
 		timeTxt.text = getTimeStr(totalTime); 
 		barController = powerBar.GetComponent<BarController> ();
 		platform = Application.platform;
+		hp = hp_set;
+		setHp ();
 	}
 	
 	// Update is called once per frame
@@ -112,7 +123,9 @@ public class GameController : MonoBehaviour {
 	}
 
 	void GameOver(){
+		Debug.Log ("GameOver");
 		gameOver = true;
+
 	}
 
 	string getTimeStr(int second){
@@ -144,5 +157,21 @@ public class GameController : MonoBehaviour {
 	public void powerOn(int power){
 		powerCount += power;
 		barController.setupBarLength ((float)powerCount/powerEnough);
+	}
+
+	public void damage(int hpd){
+		hp -= hpd;
+		setHp ();
+		if(hp <= 0){
+			GameOver();
+		}
+	}
+
+	void setHp(){
+		hpTxt.text = hp + "";
+	}
+
+	public bool isGameOver(){
+		return gameOver;
 	}
 }

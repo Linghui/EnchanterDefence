@@ -14,11 +14,13 @@ public class RunContorller : MonoBehaviour {
 
 	private GameController gameController;
 	private Sprite bloodSprite;
+	private Rigidbody2D rigi;
 
 	// Use this for initialization
 	void Start () {
 		Vector3 forward = new Vector3 (0, -1, 0);
-		GetComponent<Rigidbody2D>().velocity = forward * speed;
+		rigi = GetComponent<Rigidbody2D> ();
+		rigi.velocity = forward * speed;
 
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
 
@@ -37,6 +39,15 @@ public class RunContorller : MonoBehaviour {
 		if(transform.position.y <= -15){
 			Destroy(gameObject);
 		}
+
+		if(gameController.isGameOver()){
+
+			stopRun();
+		}
+	}
+
+	void stopRun(){
+		rigi.velocity = new Vector3 (0,0,0);
 	}
 
 	void OnTriggerEnter2D(Collider2D collider)

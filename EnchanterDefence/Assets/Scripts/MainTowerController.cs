@@ -13,9 +13,11 @@ public class MainTowerController : MonoBehaviour {
 	private float intervalCounter = 0f;
 	private bool fire = true;
 	public float bulletSpeed;
+	private GameController gameController;
 
 	// Use this for initialization
 	void Start () {
+		gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController> ();
 		anim = gameObject.GetComponent<Animator> ();
 	}
 
@@ -47,7 +49,7 @@ public class MainTowerController : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D collider){
 
-		if(collider.CompareTag("enemy") && fire){
+		if(collider.CompareTag("enemy") && fire && !gameController.isGameOver()){
 			fire = false;
 
 			GameObject bullet = Instantiate(fireBullet) as GameObject;

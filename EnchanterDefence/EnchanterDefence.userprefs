@@ -1,12 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Tower/UpgradeController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MagicTowerController.cs">
     <Files>
-      <File FileName="Assets/Scripts/Tower/AreaController.cs" Line="14" Column="1" />
-      <File FileName="Assets/Scripts/Tower/BuildController.cs" Line="10" Column="30" />
-      <File FileName="Assets/Scripts/MagicTowerController.cs" Line="48" Column="4" />
-      <File FileName="Assets/Scripts/Tower/UpgradeController.cs" Line="8" Column="2" />
-      <File FileName="Assets/Scripts/GameController.cs" Line="92" Column="5" />
+      <File FileName="Assets/Scripts/MagicTowerController.cs" Line="142" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
