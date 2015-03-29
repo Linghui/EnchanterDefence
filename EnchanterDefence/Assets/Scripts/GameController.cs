@@ -10,10 +10,14 @@ public class GameController : MonoBehaviour{
 
 	public GameOverDialog dialog;
 
+	public GameObject skillBullet;
+
 	public Text timeTxt;
 	public Text scoreTxt;
 	public Text goldTxt;
 	public Text hpTxt;
+
+	public GameObject skillButton;
 
 	public int hp_set;
 	private int hp;
@@ -33,7 +37,7 @@ public class GameController : MonoBehaviour{
 
 	private bool gameOver = false;
 	
-	private int powerCount = 0;
+	private int powerCount = 25;
 
 	private BarController barController;
 	private RuntimePlatform platform;
@@ -65,7 +69,7 @@ public class GameController : MonoBehaviour{
 			CreateEnimy();
 		}
 
-		TimeRender ();
+//		TimeRender ();
 
 	}
 
@@ -162,7 +166,39 @@ public class GameController : MonoBehaviour{
 
 	public void powerOn(int power){
 		powerCount += power;
+		setPower ();
+	}
+
+	private void setPower(){
+		
+		if (powerCount > powerEnough) {
+			powerCount = powerEnough;
+			skillOn (true);
+		} else {
+			skillOn (false);
+		}
+		
 		barController.setupBarLength ((float)powerCount/powerEnough);
+	}
+
+	public void skillOn (bool active){
+		skillButton.SetActive (active);
+	}
+
+	public void fireSkill(){
+		Debug.Log ("fireSkill");
+		skillButton.SetActive (true);
+		powerCount = 0;
+		setPower ();
+
+		for(int index = 0 ; index < 50; index++){
+			float randomx = Random.Range (-6f, 6);
+			float randomy = Random.Range (-11.60f, -10f);
+			GameObject bullet = Instantiate(skillBullet) as GameObject;
+			bullet.transform.position = new Vector2(randomx, randomy);
+			bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(0,1,0) * 8;
+		}
+
 	}
 
 	public void damage(int hpd){
