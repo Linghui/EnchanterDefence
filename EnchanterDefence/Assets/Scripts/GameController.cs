@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class GameController : MonoBehaviour {
+public class GameController : MonoBehaviour{
 
 	public GameObject[] enimies;
 	public List<GameObject> liveEnimies;
+
+	public GameOverDialog dialog;
 
 	public Text timeTxt;
 	public Text scoreTxt;
@@ -124,7 +126,11 @@ public class GameController : MonoBehaviour {
 
 	void GameOver(){
 		Debug.Log ("GameOver");
-		gameOver = true;
+		if(!gameOver){
+			gameOver = true;
+			dialog.showDialog();
+		}
+		 
 
 	}
 
@@ -174,4 +180,5 @@ public class GameController : MonoBehaviour {
 	public bool isGameOver(){
 		return gameOver;
 	}
+
 }
