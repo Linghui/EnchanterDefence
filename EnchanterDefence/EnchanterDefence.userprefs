@@ -1,11 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameController.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../web/meu/src/Meu/Assets/Resources/decorate_database/meu.xml">
     <Files>
-      <File FileName="Assets/Scripts/MagicTowerController.cs" Line="142" Column="3" />
-      <File FileName="Assets/Scripts/GameController.cs" Line="175" Column="3" />
-      <File FileName="Assets/Scripts/Tower/AreaController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ui/GameRestart.cs" Line="6" Column="17" />
+      <File FileName="../../../web/meu/src/Meu/Assets/Resources/decorate_database/meu.xml" Line="63" Column="69" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

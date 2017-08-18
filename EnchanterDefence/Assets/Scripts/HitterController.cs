@@ -10,9 +10,11 @@ public class HitterController : MonoBehaviour {
 //			Debug.Log ("hitter got it");
 			Destroy(collider.gameObject);
 
+
 			Destroy(gameObject);
 
 			GameObject ins = Instantiate(invBullet) as GameObject;
+
 			ins.transform.position = gameObject.transform.position;
 		}
 

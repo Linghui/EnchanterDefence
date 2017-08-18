@@ -5,6 +5,7 @@ using System.Collections;
 public class numberController : MonoBehaviour {
 
 	public GameObject[] numberList;
+	private GameObject[] liveNumber;
 	private int width;
 
 	void Start(){
@@ -25,6 +26,7 @@ public class numberController : MonoBehaviour {
 				numObj.transform.parent = transform;
 
 				numObj.transform.position =  new Vector2(index * 0.2f, numObj.transform.position.y);
+
 			}
 
 		}

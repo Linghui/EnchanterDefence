@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour{
 
 	private bool gameOver = false;
 	
-	private int powerCount = 25;
+	private int powerCount = 0;
 
 	private BarController barController;
 	private RuntimePlatform platform;
